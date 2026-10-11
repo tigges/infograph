@@ -1,17 +1,22 @@
-# China & Africa Developments
+# China vs Africa — Prisoners of Geography
 
-A 1920×1080 editorial infographic: Africa and China sections (three points each), three comparison nodes in the center, over a highlighted world map.
+A gallery of four vertical infographic options.
+
+- Copy is locked from `China vs Africa — Prisoners of Geography V3`
+- Diagrams (Hu Line, buffers, Nine-Dash, north–south break, 1 in 4) follow the A3 poster
+- Visual systems come from the P1–P4 references
 
 ## View
-
-Open `index.html` in a browser, or from this folder:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Then visit [http://localhost:4173](http://localhost:4173).
+Open [http://localhost:4173](http://localhost:4173).
 
-## Swap the copy
+1. **A3 diagram edition** — closest to the attached poster
+2. **Flat kit** — after P1
+3. **Banner + map** — after P3
+4. **Three-column brief** — after P4
 
-Edit `js/content.js`. That file holds the title, the six points, and the three center comparisons. The current text is draft stand-in copy from public FOCAC 2024 materials so the layout can be judged before the final points arrive.
+`landscape.html` is the earlier 16:9 experiment.
