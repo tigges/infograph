@@ -1,6 +1,10 @@
-# Prisoners of Geography — China & Africa
+# China vs Africa — Prisoners of Geography
 
-Vertical infographic mockups from handwritten notes on Tim Marshall, *Prisoners of Geography*.
+A gallery of four vertical infographic options.
+
+- Copy is locked from `China vs Africa — Prisoners of Geography V3`
+- Diagrams (Hu Line, buffers, Nine-Dash, north–south break, 1 in 4) follow the A3 poster
+- Visual systems come from the P1–P4 references
 
 ## View
 
@@ -8,13 +12,11 @@ Vertical infographic mockups from handwritten notes on Tim Marshall, *Prisoners 
 python3 -m http.server 4173
 ```
 
-Then open [http://localhost:4173](http://localhost:4173).
+Open [http://localhost:4173](http://localhost:4173).
 
-- **Option A** — wireframe flow (China on top, comparison, Africa below)
-- **Option B** — chapter stack
-- **Option C** — argument spine
-- `landscape.html` — the earlier 16:9 version
+1. **A3 diagram edition** — closest to the attached poster
+2. **Flat kit** — after P1
+3. **Banner + map** — after P3
+4. **Three-column brief** — after P4
 
-## Copy
-
-Transcribed notes live in `notes/transcription.md`. Poster wording is in `js/content.js`.
+`landscape.html` is the earlier 16:9 experiment.
