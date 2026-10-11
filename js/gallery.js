@@ -117,14 +117,30 @@
     </div>
     ${foot}`;
 
-  document.querySelectorAll(".frame-wrap").forEach((wrap) => {
-    const poster = wrap.querySelector(".poster");
-    const fit = () => {
-      const scale = Math.min(1, wrap.clientWidth / 1080);
+  const fitSheets = () => {
+    document.querySelectorAll(".frame-wrap").forEach((wrap) => {
+      const poster = wrap.querySelector(".poster");
+      const scale = Math.min(1, wrap.clientWidth / poster.offsetWidth);
       poster.style.transform = `scale(${scale})`;
       wrap.style.height = `${poster.offsetHeight * scale}px`;
-    };
-    fit();
-    window.addEventListener("resize", fit);
+    });
+  };
+  fitSheets();
+  window.addEventListener("resize", fitSheets);
+
+  const preset = new URLSearchParams(location.search).get("print");
+  if (preset) document.body.setAttribute("data-print", preset);
+
+  const printSheet = (target) => {
+    document.body.setAttribute("data-print", target);
+    window.print();
+  };
+
+  document.querySelectorAll("[data-print]").forEach((btn) => {
+    btn.addEventListener("click", () => printSheet(btn.getAttribute("data-print")));
+  });
+
+  window.addEventListener("afterprint", () => {
+    document.body.removeAttribute("data-print");
   });
 })();

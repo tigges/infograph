@@ -14,9 +14,26 @@ python3 -m http.server 4173
 
 Open [http://localhost:4173](http://localhost:4173).
 
-1. **A3 diagram edition** — closest to the attached poster
-2. **Flat kit** — after P1
-3. **Banner + map** — after P3
-4. **Three-column brief** — after P4
+## Print (A4)
+
+Each option is one A4 portrait sheet (210 × 297 mm). Print with **background graphics** on, paper **A4**, orientation **Portrait**, margins **None**.
+
+From the gallery, use **Print this A4** under a version, or **Print all 4 sheets**. You can also open a print-ready URL:
+
+- `/?print=option-a3`
+- `/?print=option-flat`
+- `/?print=option-vintage`
+- `/?print=option-dash`
+- `/?print=all`
+
+Ready-made sheets live in `print/`:
+
+- `print/01-a3-diagram.pdf` — Option 1, A3 diagram edition
+- `print/02-flat-kit.pdf` — Option 2, flat kit (after P1)
+- `print/03-banner-map.pdf` — Option 3, banner + map (after P3)
+- `print/04-three-column.pdf` — Option 4, three-column brief (after P4)
+- `print/all-four-sheets.pdf` — all four pages
+
+Regenerate them with `./scripts/print-a4.sh`.
 
 `landscape.html` is the earlier 16:9 experiment.
