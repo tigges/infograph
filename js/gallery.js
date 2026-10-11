@@ -13,7 +13,7 @@
         <h3>${point.title}</h3>
       </div>
       ${diagram || ""}
-      <blockquote>“${point.quote}” <cite>${point.page}</cite></blockquote>
+      <blockquote>“${point.quote}”</blockquote>
       <p>${point.body}</p>
       <p class="sig"><strong>Significance.</strong> ${point.significance}</p>
     </article>`;
@@ -21,29 +21,27 @@
   const compareCell = (item) => `
     <article class="compare">
       <div class="compare-kicker">${item.kicker}</div>
-      <div class="compare-value">${item.value}</div>
       <p>${item.label}</p>
     </article>`;
 
   const mast = (extra = "") => `
     <header class="mast">
       <p class="kicker">${data.kicker}</p>
-      <h1>${data.titleShort}</h1>
-      <p class="lede">${data.lede}</p>
+      <h1>${data.title}</h1>
       ${extra}
     </header>`;
 
   const foot = `<footer class="foot">${data.footer}</footer>`;
 
   document.getElementById("poster-a3").innerHTML = `
-    ${mast(`<div class="legend">${D.chinaFlag()} China &nbsp;&nbsp; ${D.ghanaFlag()} Africa · Ghana</div>`)}
-    <p class="chapter china">${data.china.chapter}<br><em>“${data.china.chapterQuote}”</em> — ${data.china.chapterPage}</p>
+    ${mast(`<div class="legend">${D.chinaFlag()} China &nbsp;&nbsp; ${D.ghanaFlag()} Africa</div>`)}
+    <p class="chapter china">${data.china.region}<br><em>${data.china.eyebrow}</em></p>
     <div class="trio">${data.china.points.map((p, i) => pointCard(p, "china", chinaDiags[i])).join("")}</div>
     <section class="verdict">
-      <h2>The comparison — why does one develop faster?</h2>
+      <h2>${data.compareTitle} — ${data.compareSub}</h2>
       <div class="quad">${data.comparisons.map(compareCell).join("")}</div>
     </section>
-    <p class="chapter africa">${data.africa.chapter}<br><em>“${data.africa.chapterQuote}”</em></p>
+    <p class="chapter africa">${data.africa.region}<br><em>${data.africa.eyebrow}</em></p>
     <div class="trio">${data.africa.points.map((p, i) => pointCard(p, "africa", africaDiags[i])).join("")}</div>
     ${foot}`;
 
@@ -54,9 +52,9 @@
     </div>
     ${mast("")}
     <div class="hero-nums">
-      <div><b>1/4</b><span>of people will be African</span></div>
-      <div><b>3×</b><span>Africa’s land vs China</span></div>
-      <div><b>No.1</b><span>world’s largest navy</span></div>
+      <div><b>1/4</b><span>one in four people will be African</span></div>
+      <div><b>3×</b><span>Africa is roughly three times China’s land area</span></div>
+      <div><b>Navy</b><span>now the world’s largest navy</span></div>
     </div>
     <div class="pin-row">
       <div class="pin-map"><img src="assets/world-map-backdrop.jpg" alt=""><span class="pin a"></span><span class="pin c"></span></div>
@@ -79,18 +77,18 @@
       <span class="flagpole africa">Africa</span>
     </div>
     <div class="tiles">
-      <div><small>01</small><b>Hu Line</b><span>fertile East</span></div>
-      <div><small>02</small><b>3×</b><span>Africa’s area</span></div>
+      <div><small>01</small><b>Hu Line</b><span>Heihe to Yunan</span></div>
+      <div><small>02</small><b>3×</b><span>Africa’s land area</span></div>
       <div><small>03</small><b>1 in 4</b><span>will be African</span></div>
     </div>
     <p class="vol">Vol. 2  ·  The six points</p>
     <div class="duo">
       <div>
-        <h2 class="china">China</h2>
+        <h2 class="china">${data.china.region}</h2>
         ${data.china.points.map((p, i) => pointCard(p, "china", chinaDiags[i])).join("")}
       </div>
       <div>
-        <h2 class="africa">Africa</h2>
+        <h2 class="africa">${data.africa.region}</h2>
         ${data.africa.points.map((p, i) => pointCard(p, "africa", africaDiags[i])).join("")}
       </div>
     </div>
@@ -106,7 +104,7 @@
 
   const reportPoint = (point, chart) => `
     <article class="widget point">
-      <h3><span>${point.num}</span> ${point.short}</h3>
+      <h3><span>${point.num}</span> ${point.title}</h3>
       ${chart}
       <p>${point.body}</p>
     </article>`;
@@ -115,7 +113,7 @@
     <li class="${side}">
       <span class="ms-num">${point.num}</span>
       <div>
-        <strong>${point.short}</strong>
+        <strong>${point.title}</strong>
         <em>${status}</em>
         <p>${point.significance}</p>
       </div>
@@ -132,38 +130,38 @@
   document.getElementById("poster-report").innerHTML = `
     <div class="plus tl">+</div><div class="plus tr">+</div>
     <header class="rep-head">
-      <h1>China vs Africa<br>Geography Report</h1>
-      <p>${data.lede}</p>
+      <p class="kicker">${data.kicker}</p>
+      <h1>${data.title}</h1>
     </header>
     <div class="rep-duo">
-      ${widget("Overall geography", D.lineGrowth(), "China concentrates a core, then extends it. Africa stays split.")}
-      ${widget("Population share", D.donut(25), "Within decades one in four people on Earth will be African. p. 217")}
+      ${widget("Similarities", D.lineGrowth(), data.comparisons[0].label)}
+      ${widget("Population growth", D.donut(25), data.africa.points[2].quote)}
     </div>
     <div class="rep-duo">
-      ${widget("Usable geography", D.hbars(), "Africa is 3× the land; China has the connected, usable share.")}
-      ${widget("Sea vs land barriers", D.stacked(), "China’s navy extends the core. Africa’s coast lacks harbours.")}
+      ${widget("Which would be bigger?", D.hbars(), data.comparisons[2].label)}
+      ${widget("Naval exploits + sea navigation", D.stacked(), data.china.points[2].body)}
     </div>
     <div class="rep-six">
       ${data.china.points.map((p, i) => reportPoint(p, chinaDiags[i])).join("")}
       ${data.africa.points.map((p, i) => reportPoint(p, africaDiags[i])).join("")}
     </div>
     <div class="rep-quad">
-      ${data.comparisons.map((item) => widget(item.kicker, `<div class="rep-stat">${item.value}</div>`, item.label)).join("")}
+      ${data.comparisons.map((item) => widget(item.kicker, "", item.label)).join("")}
     </div>
     ${foot}`;
 
   document.getElementById("poster-progress").innerHTML = `
     <div class="prog-meta">
-      <span>Marshall  ·  Prisoners of Geography  ·  V3</span>
+      <span>${data.kicker}</span>
       <span class="mark">///</span>
     </div>
     <header class="prog-head">
-      <h1>Development Progress Report</h1>
-      <p>A visual representation of why one geography develops faster.</p>
+      <h1>${data.title}</h1>
+      <p>${data.compareSub}</p>
     </header>
     <div class="prog-duo">
-      ${widget("China — secured by geography", D.rings([[100, "Hu Line"], [100, "Buffers"], [100, "Navy"]]), data.china.chapterQuote)}
-      ${widget("Africa — prisoners of geography", D.rings([[28, "Rivers"], [22, "Harbours"], [35, "Borders"]]), data.africa.chapterQuote)}
+      ${widget(data.china.region + " — " + data.china.eyebrow, D.rings([[100, "Hu Line"], [100, "Buffers"], [100, "Navy"]]), data.china.points[0].significance)}
+      ${widget(data.africa.region + " — " + data.africa.eyebrow, D.rings([[28, "Rivers"], [22, "Harbours"], [35, "Borders"]]), data.africa.points[0].significance)}
     </div>
     <div class="prog-duo">
       <article class="widget">
@@ -174,15 +172,14 @@
         </ul>
       </article>
       <div class="prog-stack">
-        ${widget("Key performance", D.hbars(), "Heartland, buffers and navy vs rivers, harbours and borders.")}
-        ${widget("1 in 4 people", D.peopleRow(), "Africa’s population challenge — p. 217")}
+        ${widget(data.comparisons[1].kicker, D.hbars(), data.comparisons[1].label)}
+        ${widget(data.africa.points[2].quote, D.peopleRow(), data.africa.points[2].significance)}
       </div>
     </div>
     <div class="prog-quad">
       ${data.comparisons.map((item) => `
         <article class="widget kpi">
           <h3>${item.kicker}</h3>
-          <div class="rep-stat">${item.value}</div>
           <p>${item.label}</p>
         </article>`).join("")}
     </div>
@@ -194,28 +191,30 @@
 
   document.getElementById("poster-insights").innerHTML = `
     <header class="ins-head">
-      <p>Key insights:</p>
-      <h1>Geography</h1>
-      <p class="lede">${data.lede}</p>
+      <p>${data.kicker}</p>
+      <h1>${data.title}</h1>
     </header>
     <div class="ins-top">
-      ${dataBlock("1", data.china.points[0].short, data.china.points[0].body, chinaDiags[0] + D.columns())}
-      ${dataBlock("2", "Why one develops faster", data.comparisons[3].label, D.steps())}
+      ${dataBlock("1", data.china.points[0].title, data.china.points[0].body, chinaDiags[0] + D.columns())}
+      ${dataBlock("2", data.china.points[1].title, data.china.points[1].body, D.orgCore())}
     </div>
-    ${dataBlock("3", "Buffer ring and the navy", `${data.china.points[1].body} ${data.china.points[2].significance}`, D.orgCore())}
+    ${dataBlock("3", data.china.points[2].title, data.china.points[2].body, D.steps())}
     <div class="ins-mid">
-      ${dataBlock("4", data.africa.points[0].short, data.africa.points[0].body, africaDiags[0])}
-      ${dataBlock("5", "1 in 4 will be African", data.africa.points[2].body, D.donut(25) + D.peopleRow())}
+      ${dataBlock("4", data.africa.points[0].title, data.africa.points[0].body, africaDiags[0])}
+      ${dataBlock("5", data.africa.points[2].title, data.africa.points[2].body, D.donut(25) + D.peopleRow())}
     </div>
     <article class="data-block wide">
       <h3>Data 6</h3>
-      <strong>${data.africa.points[1].short}</strong>
+      <strong>${data.africa.points[1].title}</strong>
       <p>${data.africa.points[1].body}</p>
       <div class="ins-map">
         <img src="assets/world-map-backdrop.jpg" alt="">
         ${africaDiags[1]}
       </div>
     </article>
+    <div class="rep-quad">
+      ${data.comparisons.map(compareCell).join("")}
+    </div>
     <footer class="ins-foot">${data.footer}</footer>`;
 
   const fitSheets = () => {

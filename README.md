@@ -2,7 +2,7 @@
 
 A gallery of six vertical infographic options.
 
-- Copy is locked from `China vs Africa — Prisoners of Geography V3`
+- Copy is locked from `CHINA_TEXT_ALL_FINAL` — every version uses that wording, not a rewrite
 - Diagrams (Hu Line, buffers, Nine-Dash, north–south break, 1 in 4) follow the A3 poster
 - Visual systems come from P1, P3, and the three separate designs inside P4
 
