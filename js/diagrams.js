@@ -232,8 +232,8 @@ window.DIAGRAMS = {
           return `<circle cx="${x}" cy="18" r="7" fill="${fill}"/><rect x="${x - 6}" y="26" width="12" height="16" rx="5" fill="${fill}"/>`;
         })
         .join("")}
-      <text x="130" y="28" font-size="18" font-weight="600" fill="#1a2744">1 in 4</text>
-      <text x="130" y="44" font-size="8" fill="#8a93a3">an extra billion to house, feed, employ</text>
+      <text x="128" y="28" font-size="18" font-weight="600" fill="#1a2744">1 in 4</text>
+      <text x="128" y="44" font-size="8" fill="#8a93a3">an extra billion people</text>
     </svg>`;
   },
 
