@@ -97,34 +97,151 @@
     <div class="strip cream">${data.comparisons.map(compareCell).join("")}</div>
     ${foot}`;
 
-  document.getElementById("poster-dash").innerHTML = `
-    ${mast("")}
-    <div class="dash">
-      <section>
-        <h2 class="china">China · secured by geography</h2>
-        ${data.china.points.map((p, i) => pointCard(p, "china", chinaDiags[i])).join("")}
-      </section>
-      <section class="mid">
-        <h2>Key insights</h2>
-        ${data.comparisons.map(compareCell).join("")}
-        <div class="insight-num">1 in 4</div>
-        <p class="insight-note">Africa’s population challenge — p. 217</p>
-      </section>
-      <section>
-        <h2 class="africa">Africa · prisoners of geography</h2>
-        ${data.africa.points.map((p, i) => pointCard(p, "africa", africaDiags[i])).join("")}
-      </section>
+  const widget = (title, chart, note = "") => `
+    <article class="widget">
+      <h3>${title}</h3>
+      ${chart}
+      ${note ? `<p>${note}</p>` : ""}
+    </article>`;
+
+  const reportPoint = (point, chart) => `
+    <article class="widget point">
+      <h3><span>${point.num}</span> ${point.short}</h3>
+      ${chart}
+      <p>${point.body}</p>
+    </article>`;
+
+  const milestone = (point, side, status) => `
+    <li class="${side}">
+      <span class="ms-num">${point.num}</span>
+      <div>
+        <strong>${point.short}</strong>
+        <em>${status}</em>
+        <p>${point.significance}</p>
+      </div>
+    </li>`;
+
+  const dataBlock = (n, title, body, extra = "") => `
+    <article class="data-block">
+      <h3>Data ${n}</h3>
+      <strong>${title}</strong>
+      <p>${body}</p>
+      ${extra}
+    </article>`;
+
+  document.getElementById("poster-report").innerHTML = `
+    <div class="plus tl">+</div><div class="plus tr">+</div>
+    <header class="rep-head">
+      <h1>China vs Africa<br>Geography Report</h1>
+      <p>${data.lede}</p>
+    </header>
+    <div class="rep-duo">
+      ${widget("Overall geography", D.lineGrowth(), "China concentrates a core, then extends it. Africa stays split.")}
+      ${widget("Population share", D.donut(25), "Within decades one in four people on Earth will be African. p. 217")}
+    </div>
+    <div class="rep-duo">
+      ${widget("Usable geography", D.hbars(), "Africa is 3× the land; China has the connected, usable share.")}
+      ${widget("Sea vs land barriers", D.stacked(), "China’s navy extends the core. Africa’s coast lacks harbours.")}
+    </div>
+    <div class="rep-six">
+      ${data.china.points.map((p, i) => reportPoint(p, chinaDiags[i])).join("")}
+      ${data.africa.points.map((p, i) => reportPoint(p, africaDiags[i])).join("")}
+    </div>
+    <div class="rep-quad">
+      ${data.comparisons.map((item) => widget(item.kicker, `<div class="rep-stat">${item.value}</div>`, item.label)).join("")}
     </div>
     ${foot}`;
 
-  document.querySelectorAll(".frame-wrap").forEach((wrap) => {
-    const poster = wrap.querySelector(".poster");
-    const fit = () => {
-      const scale = Math.min(1, wrap.clientWidth / 1080);
+  document.getElementById("poster-progress").innerHTML = `
+    <div class="prog-meta">
+      <span>Marshall  ·  Prisoners of Geography  ·  V3</span>
+      <span class="mark">///</span>
+    </div>
+    <header class="prog-head">
+      <h1>Development Progress Report</h1>
+      <p>A visual representation of why one geography develops faster.</p>
+    </header>
+    <div class="prog-duo">
+      ${widget("China — secured by geography", D.rings([[100, "Hu Line"], [100, "Buffers"], [100, "Navy"]]), data.china.chapterQuote)}
+      ${widget("Africa — prisoners of geography", D.rings([[28, "Rivers"], [22, "Harbours"], [35, "Borders"]]), data.africa.chapterQuote)}
+    </div>
+    <div class="prog-duo">
+      <article class="widget">
+        <h3>Project milestones</h3>
+        <ul class="milestones">
+          ${data.china.points.map((p) => milestone(p, "china", "Secured")).join("")}
+          ${data.africa.points.map((p, i) => milestone(p, "africa", i === 2 ? "Rising" : "Blocked")).join("")}
+        </ul>
+      </article>
+      <div class="prog-stack">
+        ${widget("Key performance", D.hbars(), "Heartland, buffers and navy vs rivers, harbours and borders.")}
+        ${widget("1 in 4 people", D.peopleRow(), "Africa’s population challenge — p. 217")}
+      </div>
+    </div>
+    <div class="prog-quad">
+      ${data.comparisons.map((item) => `
+        <article class="widget kpi">
+          <h3>${item.kicker}</h3>
+          <div class="rep-stat">${item.value}</div>
+          <p>${item.label}</p>
+        </article>`).join("")}
+    </div>
+    <article class="widget gantt-wrap">
+      <h3>Projected vs actual timelines</h3>
+      ${D.gantt()}
+    </article>
+    ${foot}`;
+
+  document.getElementById("poster-insights").innerHTML = `
+    <header class="ins-head">
+      <p>Key insights:</p>
+      <h1>Geography</h1>
+      <p class="lede">${data.lede}</p>
+    </header>
+    <div class="ins-top">
+      ${dataBlock("1", data.china.points[0].short, data.china.points[0].body, chinaDiags[0] + D.columns())}
+      ${dataBlock("2", "Why one develops faster", data.comparisons[3].label, D.steps())}
+    </div>
+    ${dataBlock("3", "Buffer ring and the navy", `${data.china.points[1].body} ${data.china.points[2].significance}`, D.orgCore())}
+    <div class="ins-mid">
+      ${dataBlock("4", data.africa.points[0].short, data.africa.points[0].body, africaDiags[0])}
+      ${dataBlock("5", "1 in 4 will be African", data.africa.points[2].body, D.donut(25) + D.peopleRow())}
+    </div>
+    <article class="data-block wide">
+      <h3>Data 6</h3>
+      <strong>${data.africa.points[1].short}</strong>
+      <p>${data.africa.points[1].body}</p>
+      <div class="ins-map">
+        <img src="assets/world-map-backdrop.jpg" alt="">
+        ${africaDiags[1]}
+      </div>
+    </article>
+    <footer class="ins-foot">${data.footer}</footer>`;
+
+  const fitSheets = () => {
+    document.querySelectorAll(".frame-wrap").forEach((wrap) => {
+      const poster = wrap.querySelector(".poster");
+      const scale = Math.min(1, wrap.clientWidth / poster.offsetWidth);
       poster.style.transform = `scale(${scale})`;
       wrap.style.height = `${poster.offsetHeight * scale}px`;
-    };
-    fit();
-    window.addEventListener("resize", fit);
+    });
+  };
+  fitSheets();
+  window.addEventListener("resize", fitSheets);
+
+  const preset = new URLSearchParams(location.search).get("print");
+  if (preset) document.body.setAttribute("data-print", preset);
+
+  const printSheet = (target) => {
+    document.body.setAttribute("data-print", target);
+    window.print();
+  };
+
+  document.querySelectorAll("[data-print]").forEach((btn) => {
+    btn.addEventListener("click", () => printSheet(btn.getAttribute("data-print")));
+  });
+
+  window.addEventListener("afterprint", () => {
+    document.body.removeAttribute("data-print");
   });
 })();
