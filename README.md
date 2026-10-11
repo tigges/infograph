@@ -1,10 +1,12 @@
 # China vs Africa — Prisoners of Geography
 
-A gallery of four vertical infographic options.
+A gallery of six vertical infographic options.
 
 - Copy is locked from `China vs Africa — Prisoners of Geography V3`
 - Diagrams (Hu Line, buffers, Nine-Dash, north–south break, 1 in 4) follow the A3 poster
-- Visual systems come from the P1–P4 references
+- Visual systems come from P1, P3, and the three separate designs inside P4
+
+P4 is not one 3-column poster. It is a kit of three sheets: a market-trends report, a monthly progress report, and a numbered key-insights infographic.
 
 ## View
 
@@ -18,12 +20,14 @@ Open [http://localhost:4173](http://localhost:4173).
 
 Each option is one A4 portrait sheet (210 × 297 mm). Print with **background graphics** on, paper **A4**, orientation **Portrait**, margins **None**.
 
-From the gallery, use **Print this A4** under a version, or **Print all 4 sheets**. You can also open a print-ready URL:
+From the gallery, use **Print this A4** under a version, or **Print all 6 sheets**. You can also open a print-ready URL:
 
 - `/?print=option-a3`
 - `/?print=option-flat`
 - `/?print=option-vintage`
-- `/?print=option-dash`
+- `/?print=option-report`
+- `/?print=option-progress`
+- `/?print=option-insights`
 - `/?print=all`
 
 Ready-made sheets live in `print/`:
@@ -31,8 +35,10 @@ Ready-made sheets live in `print/`:
 - `print/01-a3-diagram.pdf` — Option 1, A3 diagram edition
 - `print/02-flat-kit.pdf` — Option 2, flat kit (after P1)
 - `print/03-banner-map.pdf` — Option 3, banner + map (after P3)
-- `print/04-three-column.pdf` — Option 4, three-column brief (after P4)
-- `print/all-four-sheets.pdf` — all four pages
+- `print/04-market-report.pdf` — Option 4, market-trends report (after P4a)
+- `print/05-progress-report.pdf` — Option 5, monthly progress report (after P4b)
+- `print/06-key-insights.pdf` — Option 6, key insights (after P4c)
+- `print/all-sheets.pdf` — all six pages
 
 Regenerate them with `./scripts/print-a4.sh`.
 
