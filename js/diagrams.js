@@ -14,7 +14,7 @@ window.DIAGRAMS = {
       }).join("")}
       <line x1="48" y1="22" x2="168" y2="112" stroke="#e23c28" stroke-width="2.6"/>
       <text x="18" y="22" font-size="9">Heihe</text>
-      <text x="168" y="124" font-size="9">Yunnan</text>
+      <text x="168" y="124" font-size="9">Yunan</text>
       <text x="24" y="118" font-size="8" opacity=".7">mountains, desert, sparse</text>
       <text x="124" y="18" font-size="8" opacity=".7">fertile East</text>
     </svg>`;
@@ -80,7 +80,7 @@ window.DIAGRAMS = {
         <circle cx="196" cy="40" r="8"/><rect x="188" y="50" width="16" height="22" rx="6"/>
       </g>
       <text x="130" y="96" font-size="9">people will be African</text>
-      <text x="130" y="112" font-size="8" opacity=".7">an extra billion to house, feed, employ</text>
+      <text x="130" y="112" font-size="8" opacity=".7">within decades, one in four on Earth</text>
     </svg>`;
   },
 
@@ -194,7 +194,7 @@ window.DIAGRAMS = {
   },
 
   steps() {
-    const items = ["Geography first", "One core vs splits", "Africa bigger in area", "Unity was cheap"];
+    const items = ["Similarities", "Differences", "Which would be bigger?", "Why does one develop faster?"];
     return `<svg class="chart" viewBox="0 0 200 110" aria-hidden="true">${items
       .map((label, i) => {
         const y = 14 + i * 24;
@@ -233,7 +233,7 @@ window.DIAGRAMS = {
         })
         .join("")}
       <text x="128" y="28" font-size="18" font-weight="600" fill="#1a2744">1 in 4</text>
-      <text x="128" y="44" font-size="8" fill="#8a93a3">an extra billion people</text>
+      <text x="128" y="44" font-size="8" fill="#8a93a3">will be African</text>
     </svg>`;
   },
 
