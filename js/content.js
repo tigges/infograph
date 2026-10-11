@@ -4,14 +4,14 @@
  * public materials, not the client's locked text.
  */
 window.INFOGRAPHIC = {
-  kicker: "FOCAC 2024  ·  Beijing Action Plan 2025–27",
+  kicker: "FOCAC 2024  ·  Action Plan 2025–27",
   titleLead: "China",
   titleJoin: "&",
   titleTrail: "Africa",
   titleRest: "Developments",
   subtitle:
     "A comparative snapshot of partnership, delivery, and the next cycle of growth.",
-  draftNote: "Draft layout — swap this copy when your points are ready",
+  draftNote: "Draft copy — points incoming",
   footerLeft: "China–Africa developments  ·  Editorial infographic",
   footerRight: "Sources: FOCAC Beijing Summit 2024  ·  MFA follow-up 2025",
 
