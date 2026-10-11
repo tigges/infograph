@@ -1,79 +1,78 @@
 /**
- * Infographic copy — edit this file when the final points arrive.
- * Numbers and phrasing below are draft stand-ins from FOCAC 2024
- * public materials, not the client's locked text.
+ * Transcribed from the handwritten notes, checked against
+ * Tim Marshall, Prisoners of Geography. See notes/transcription.md.
  */
 window.INFOGRAPHIC = {
-  kicker: "FOCAC 2024  ·  Action Plan 2025–27",
+  kicker: "Prisoners of Geography  ·  Tim Marshall",
   titleLead: "China",
   titleJoin: "&",
   titleTrail: "Africa",
   titleRest: "Developments",
   subtitle:
-    "A comparative snapshot of partnership, delivery, and the next cycle of growth.",
-  draftNote: "Draft copy — points incoming",
-  footerLeft: "China–Africa developments  ·  Editorial infographic",
-  footerRight: "Sources: FOCAC Beijing Summit 2024  ·  MFA follow-up 2025",
+    "How physical geography shaped two paths of development — a heartland with buffers versus a continent of barriers.",
+  draftNote: "Transcribed from notes  ·  wording tightened for the poster",
+  footerLeft: "Prisoners of Geography  ·  China & Africa",
+  footerRight: "Notes pp. 53–58, 217  ·  Marshall 2015 / later ed.",
 
-  africa: {
-    region: "Africa",
-    eyebrow: "Continental priorities",
+  china: {
+    region: "China",
+    eyebrow: "China’s development",
     points: [
       {
         num: "01",
-        title: "AfCFTA & integration",
-        body: "Support for the continental market, AU connectivity, and PIDA corridors so African trade can move as one system.",
+        title: "Heartland & the Hu Line",
+        body: "The heartland is the political, cultural, demographic and — crucially — the agricultural centre of gravity. The Hu Line is the most important geographical feature in this study: it explains the disparity of China’s population, and how terrain and climate determined the way China developed.",
       },
       {
         num: "02",
-        title: "Export access",
-        body: "Duty-free treatment across all tariff lines for eligible LDCs, plus green lanes for African agricultural goods into China.",
+        title: "Borders & buffer zones",
+        body: "A buffer in the border regions protects the core from instability. Large space means many borders; without those buffers it is easier to press inward. Mongolia, Tibet and Xinjiang are the noted buffers around the fertile east.",
       },
       {
         num: "03",
-        title: "Value-add shift",
-        body: "Industrial parks, minerals-to-manufacturing, and local jobs — moving the partnership beyond raw commodity export.",
+        title: "Navy & the sea neighbourhood",
+        body: "“A green-water navy patrols its maritime borders.” China is closing on the size of a true sea power along the coast — deciding trade routes, exposing resources, and influencing policy far beyond the heartland.",
       },
     ],
   },
 
-  china: {
-    region: "China",
-    eyebrow: "Partnership offer",
+  africa: {
+    region: "Africa",
+    eyebrow: "Africa’s constraints",
     points: [
       {
         num: "01",
-        title: "Ten partnership actions",
-        body: "Trade, industry, connectivity, green development, and people-to-people work framed as a joint modernization agenda.",
+        title: "Natural barriers",
+        body: "Terrible natural harbours; rivers broken by waterfalls. These are just two in a long list of problems that help explain why Africa is not as technologically or politically successful as Western Europe — or even China. North and south stay poorly connected. Trade routes ✕.",
       },
       {
         num: "02",
-        title: "Fresh financing",
-        body: "About $51bn pledged over three years, mixing credit, assistance, and firm investment, with a million-job target.",
+        title: "Borders drawn by colonisation",
+        body: "“Many Africans are now partially the prisoners of the political geography the Europeans made.” Lines ignored ethnic geography — Sudan, Somalia — and left political, social and economic instability. Contrast China’s unified core, protected by buffers.",
       },
       {
         num: "03",
-        title: "Delivery mix",
-        body: "Livelihood ‘small and beautiful’ projects alongside flagship rail, energy, and digital builds under a new finance mix.",
+        title: "Population growth",
+        body: "“Perhaps Africa’s biggest challenge: population growth.” One in four people will be African. That explosion needs infrastructure, production and an agricultural sector that can feed it — hard to enforce, and an inevitable drag on development if it is not met.",
       },
     ],
   },
 
   comparisons: [
     {
-      kicker: "Trade",
-      value: "$295.6B",
-      label: "Record China–Africa trade in 2024",
+      kicker: "Core",
+      value: "Heartland vs barriers",
+      label: "A fertile, unified agricultural core — against Sahara, waterfalls and a smooth coast that isolate.",
     },
     {
-      kicker: "Projects",
-      value: "30 + 30",
-      label: "Infrastructure and clean-energy packages",
+      kicker: "Borders",
+      value: "Chosen vs imposed",
+      label: "Buffers built around a Han core — against colonial lines that ignored ethnicity.",
     },
     {
-      kicker: "Compact",
-      value: "$51B",
-      label: "Three-year financing and investment pledge",
+      kicker: "The sea",
+      value: "Navy vs no harbour",
+      label: "A green-water navy on home waters — against few harbours and rivers that cannot carry trade.",
     },
   ],
 };

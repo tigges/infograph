@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>China & Africa Developments</title>
+    <title>China & Africa — vertical mockups</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305080f'/%3E%3Ccircle cx='11' cy='18' r='5' fill='%232f9b6e'/%3E%3Ccircle cx='22' cy='13' r='4' fill='%23e23c28'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,72 +11,106 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/options.css" />
   </head>
-  <body>
-    <div class="viewport">
-      <article class="poster" id="poster">
-        <img
-          class="map"
-          src="assets/world-map-backdrop.jpg"
-          alt="World map with Africa and China highlighted"
-        />
-        <div class="scrim"></div>
-        <div class="vignette"></div>
-        <div class="grain"></div>
-        <span class="orbit a" aria-hidden="true"></span>
-        <span class="orbit c" aria-hidden="true"></span>
+  <body class="board">
+    <header class="board-head">
+      <p class="board-kicker">Reference first  ·  then three top-to-bottom options</p>
+      <h1>Prisoners of Geography — China &amp; Africa</h1>
+      <p class="board-lede">
+        Your sketch runs <strong>China → comparison → Africa</strong>. The copy below is transcribed from the two notebook pages. Three mockups follow; Option A follows the wireframe.
+      </p>
+      <nav class="board-nav">
+        <a href="#refs">References</a>
+        <a href="#notes">Transcription</a>
+        <a href="#option-a">Option A</a>
+        <a href="#option-b">Option B</a>
+        <a href="#option-c">Option C</a>
+        <a href="landscape.html">Old landscape</a>
+      </nav>
+    </header>
 
-        <div class="layout">
-          <header>
-            <div class="brand">
-              <span class="kicker" data-field="kicker"></span>
-              <span class="rule"></span>
-            </div>
-            <div class="titles">
-              <h1 class="headline">
-                <span class="china" data-field="titleLead"></span>
-                <span class="join" data-field="titleJoin"></span>
-                <span class="africa" data-field="titleTrail"></span>
-                <span class="rest" data-field="titleRest"></span>
-              </h1>
-              <p class="subtitle" data-field="subtitle"></p>
-            </div>
-            <div class="meta">
-              <span class="draft" data-field="draftNote"></span>
-              <span class="rule"></span>
-            </div>
-          </header>
+    <section class="panel" id="refs">
+      <h2>What the strongest diagram infographics do</h2>
+      <div class="ref-grid">
+        <article>
+          <h3>National Geographic feature</h3>
+          <p>Map is the hero. Numbered callouts sit on the flanks, never over the landmass. Serif title, short sentences, one accent colour per region.</p>
+        </article>
+        <article>
+          <h3>Visual Capitalist poster</h3>
+          <p>Strict top-to-bottom reading: kicker → title → chapter → key strip → chapter. Each block is a full row. Comparisons are a horizontal band, not a side column.</p>
+        </article>
+        <article>
+          <h3>Economist Graphic Detail</h3>
+          <p>A centre spine carries the argument. Left and right are paired. Difference is the story, not decoration.</p>
+        </article>
+        <article>
+          <h3>Your wireframe</h3>
+          <p>China cluster on top (1 | map | 2, then 3 wide). Comparison larger, in the middle. Africa underneath (1 | map | 3, then 2 along the bottom curve).</p>
+        </article>
+      </div>
+    </section>
 
-          <div class="grid">
-            <section class="col col-africa" aria-label="Africa">
-              <div class="col-head">
-                <h2 class="region africa" data-field="africa.region"></h2>
-                <span class="eyebrow" data-field="africa.eyebrow"></span>
-              </div>
-              <div id="africa-points"></div>
-            </section>
-
-            <section class="col compare col-compare" aria-label="Comparisons" id="comparisons"></section>
-
-            <section class="col col-china" aria-label="China">
-              <div class="col-head">
-                <h2 class="region china" data-field="china.region"></h2>
-                <span class="eyebrow" data-field="china.eyebrow"></span>
-              </div>
-              <div id="china-points"></div>
-            </section>
-          </div>
-
-          <footer>
-            <span class="foot" data-field="footerLeft"></span>
-            <span class="foot" data-field="footerRight"></span>
-          </footer>
+    <section class="panel" id="notes">
+      <h2>Transcribed notes</h2>
+      <p class="fine">Handwriting was fast. This is a best-effort reading, checked against Marshall. Full file: <a href="notes/transcription.md">notes/transcription.md</a>.</p>
+      <div class="note-cols">
+        <div>
+          <h3>China</h3>
+          <ol>
+            <li><strong>Heartland &amp; Hu Line.</strong> Agricultural centre of gravity; the line explains population disparity and how China developed.</li>
+            <li><strong>Borders &amp; buffers.</strong> Buffer zones protect the core. Mongolia, Tibet, Xinjiang around the fertile east.</li>
+            <li><strong>Navy &amp; sea neighbourhood.</strong> “A green-water navy patrols its maritime borders.” Trade routes, resources, influence.</li>
+          </ol>
         </div>
-      </article>
-    </div>
+        <div>
+          <h3>Africa</h3>
+          <ol>
+            <li><strong>Natural barriers.</strong> Poor harbours, waterfalls, north–south split. Contrast the Rhine. Trade routes ✕.</li>
+            <li><strong>Colonial borders.</strong> “Prisoners of the political geography the Europeans made.” Sudan, Somalia. Contrast China’s unified core.</li>
+            <li><strong>Population growth.</strong> “Perhaps Africa’s biggest challenge.” One in four people will be African (p.217).</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Comparison</h3>
+          <ol>
+            <li>Heartland vs barriers</li>
+            <li>Chosen buffers vs imposed borders</li>
+            <li>Navy vs no harbour</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="option" id="option-a">
+      <div class="option-meta">
+        <p>Option A</p>
+        <h2>Wireframe flow</h2>
+        <p>Closest to your sketch. China on top, a larger comparison band, Africa below. Point 3 of China and Point 2 of Africa are the wide rows.</p>
+      </div>
+      <div class="frame-wrap" data-poster="a"><article class="poster poster-a" id="poster-a"></article></div>
+    </section>
+
+    <section class="option" id="option-b">
+      <div class="option-meta">
+        <p>Option B</p>
+        <h2>Chapter stack</h2>
+        <p>Visual Capitalist reading order. One continent chapter, then the comparison strip, then the other. Maps stay clear of the type.</p>
+      </div>
+      <div class="frame-wrap" data-poster="b"><article class="poster poster-b" id="poster-b"></article></div>
+    </section>
+
+    <section class="option" id="option-c">
+      <div class="option-meta">
+        <p>Option C</p>
+        <h2>Argument spine</h2>
+        <p>Economist-style centre line. China points descend, the three comparisons sit on the spine, Africa continues the same downward flow.</p>
+      </div>
+      <div class="frame-wrap" data-poster="c"><article class="poster poster-c" id="poster-c"></article></div>
+    </section>
 
     <script src="js/content.js"></script>
-    <script src="js/render.js"></script>
+    <script src="js/options.js"></script>
   </body>
 </html>
