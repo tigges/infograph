@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>China & Africa Developments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="viewport">
+      <article class="poster" id="poster">
+        <img
+          class="map"
+          src="assets/world-map-backdrop.jpg"
+          alt="World map with Africa and China highlighted"
+        />
+        <div class="scrim"></div>
+        <div class="vignette"></div>
+        <div class="grain"></div>
+        <span class="orbit a" aria-hidden="true"></span>
+        <span class="orbit c" aria-hidden="true"></span>
+
+        <div class="layout">
+          <header>
+            <div class="brand">
+              <span class="kicker" data-field="kicker"></span>
+              <span class="rule"></span>
+            </div>
+            <div class="titles">
+              <h1 class="headline">
+                <span class="china" data-field="titleLead"></span>
+                <span class="join" data-field="titleJoin"></span>
+                <span class="africa" data-field="titleTrail"></span>
+                <span class="rest" data-field="titleRest"></span>
+              </h1>
+              <p class="subtitle" data-field="subtitle"></p>
+            </div>
+            <div class="meta">
+              <span class="draft" data-field="draftNote"></span>
+              <span class="rule"></span>
+            </div>
+          </header>
+
+          <div class="grid">
+            <section class="col" aria-label="Africa">
+              <div class="col-head">
+                <h2 class="region africa" data-field="africa.region"></h2>
+                <span class="eyebrow" data-field="africa.eyebrow"></span>
+              </div>
+              <div id="africa-points"></div>
+            </section>
+
+            <section class="col compare" aria-label="Comparisons" id="comparisons"></section>
+
+            <section class="col" aria-label="China">
+              <div class="col-head">
+                <h2 class="region china" data-field="china.region"></h2>
+                <span class="eyebrow" data-field="china.eyebrow"></span>
+              </div>
+              <div id="china-points"></div>
+            </section>
+          </div>
+
+          <footer>
+            <span class="foot" data-field="footerLeft"></span>
+            <span class="foot" data-field="footerRight"></span>
+          </footer>
+        </div>
+      </article>
+    </div>
+
+    <script src="js/content.js"></script>
+    <script src="js/render.js"></script>
+  </body>
+</html>
