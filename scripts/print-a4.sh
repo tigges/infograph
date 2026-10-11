@@ -20,25 +20,38 @@ print_one() {
   local name="$1"
   local query="$2"
   local dest="$3"
-  local profile="/tmp/chrome-print-${name}"
+  local profile="/tmp/chrome-print-${name}-$$"
   rm -rf "$profile"
   mkdir -p "$profile"
-  google-chrome \
-    --headless=new \
+  set +e
+  timeout 45s google-chrome \
+    --headless \
     --disable-gpu \
     --no-sandbox \
     --no-first-run \
     --no-default-browser-check \
     --disable-extensions \
     --disable-dev-shm-usage \
+    --disable-background-networking \
+    --disable-sync \
+    --disable-component-update \
+    --disable-default-apps \
+    --disable-features=TranslateUI,MediaRouter \
     --no-pdf-header-footer \
     --hide-scrollbars \
     --run-all-compositor-stages-before-draw \
-    --virtual-time-budget=10000 \
-    --timeout=30000 \
+    --virtual-time-budget=8000 \
     --user-data-dir="$profile" \
     --print-to-pdf="$dest" \
     "http://127.0.0.1:${PORT}/?print=${query}"
+  local status=$?
+  set -e
+  rm -rf "$profile"
+  # Chrome often writes the PDF then hangs; timeout 124 is OK if the file exists.
+  if [[ ! -s "$dest" ]]; then
+    echo "failed to write $dest (exit ${status})" >&2
+    exit 1
+  fi
   echo "wrote $dest"
 }
 
